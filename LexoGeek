@@ -1,0 +1,44 @@
+// https://www.hackerearth.com/problem/algorithm/lexogeek-e6450fb7/
+
+#include <bits/stdc++.h>
+using namespace std;
+/*
+ 
+badcwedaa
+ 
+ 
+*/
+int getCommonIndex(string s) {
+ 
+    for (int i = s.length() - 2; i >= 0; i--) {
+        if (s[i] < s[i + 1]) return i - 1;
+    }
+    return -2;
+}
+int main() {
+    int T;
+    cin >> T;
+    while (T--) {
+        int ln;
+        string s;
+        cin >> s;
+        ln = s.length();
+        int commonIndex = getCommonIndex(s);
+        if (commonIndex == -2) {
+            cout << "no answer" << endl;
+        }
+        else {
+            int swapIndex = commonIndex + 2;
+            for (int i = commonIndex + 2; i < ln; i++) {
+                if (s[swapIndex] > s[i] && s[i] > s[commonIndex + 1]) {
+                    swapIndex = i;
+                }
+            }
+            swap(s[swapIndex], s[commonIndex + 1]);
+            sort(s.begin() + commonIndex + 2, s.end());
+            cout << s << endl;
+        }
+    }
+    return 0;
+}
+ 

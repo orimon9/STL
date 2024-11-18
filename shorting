@@ -1,0 +1,20 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    vector<string>vecofString;
+    vecofString.push_back("Hello");
+    vecofString.push_back("World");
+    vecofString.push_back("Hi");
+    vecofString.push_back("Ami");
+
+    for(string s: vecofString){
+        cout<<s<<endl;
+    }
+    cout<<"\n\nAfter shorting\n\n"<<endl;
+    sort(vecofString.begin(),vecofString.end());
+
+    return 0;
+
+}
